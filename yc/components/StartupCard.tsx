@@ -3,6 +3,8 @@ import React from "react";
 import StartupCardType from "./StartupCardType";
 import { EyeIcon } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 const StartupCard = ({ post }: { post: StartupCardType }) => {
   const {
@@ -13,6 +15,7 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
     category,
     _id,
     image,
+    description,
   } = post;
 
   return (
@@ -34,9 +37,38 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
             <h3 className="text-26-semibold">{title}</h3>
           </Link>
         </div>
+        <Link href={`/user/${authorId}`}>
+          <Image
+            src="https://placehold.co/48x48"
+            alt="placeholder"
+            width={48}
+            height={48}
+            className="rounded-full"
+          />
+        </Link>
+      </div>
+
+      <Link href={`/startup/${_id}`}>
+        <p className="startup-card_desc">
+          {description}
+        </p>
+
+        <img src={image} alt="placeholder" className="startup-card_img" />
+
+      </Link>
+
+      <div className="flex-between gap-3 mt-5">
+        <Link href={`/query=${category.toLowerCase()}`}>
+          <span className="text-16-medium text-primary">{category}</span>
+        </Link>
+
+        <Button className="startup-card_btn" asChild>
+              <Link href={
+                `/startup/${_id}`
+              }>Details</Link>
+        </Button>
       </div>
     </li>
   );
 };
-
 export default StartupCard;
