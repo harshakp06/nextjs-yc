@@ -1,4 +1,4 @@
-# NextJS-YC
+# Next JS-YC
 
 ## <a name="links">🔗 Assets</a>
 
