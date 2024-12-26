@@ -5,3 +5,6 @@ import { startup } from './startup'
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [author, startup ],
 }
+
+
+// 
